@@ -4,7 +4,7 @@
 
 Ensure you have the following installed on your system:
 
-- Node.js >- 18
+- Node.js >= 18
 - Yarn
 
 ## Installation
