@@ -1,9 +1,7 @@
-import { createApp } from 'vue'
-import './style.css'
-import { createPinia } from "pinia"
-import App from './App.vue'
+import Retro from "./Retro";
 
-const app = createApp(App);
+//@ts-expect-error ExternalConfig comes from index.html
+const debug = ExternalConfig?.debugEnabled || false;
 
-app.use(createPinia());
-app.mount("#retro-overlay");
+const instance = new Retro(debug);
+instance.init();
