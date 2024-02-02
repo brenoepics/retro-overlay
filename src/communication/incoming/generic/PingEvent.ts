@@ -8,6 +8,7 @@ interface PingData {
 
 export default class PingEvent implements IncomingMessage {
     parse(data: PingData): void {
+        console.log(data.message)
         Retro.Overlay.communicationManager.sendMessage(new PongComposer());
     }
 }
