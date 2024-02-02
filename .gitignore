@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 index.html
 yarn.lock
+*.example

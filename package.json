@@ -18,9 +18,11 @@
     "*.{ts,vue}": "eslint --fix"
   },
   "dependencies": {
-    "@braks/revue-draggable": "0.4.3",
+    "@vueuse/core": "^10.7.2",
     "pinia": "^2.1.7",
+    "unplugin-auto-import": "^0.17.5",
     "vue": "3.4.15",
+    "vue-demi": "^0.14.7",
     "vue-facing-decorator": "^3.0.4"
   },
   "devDependencies": {
