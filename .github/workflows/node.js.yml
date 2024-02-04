@@ -1,5 +1,10 @@
-name: CI
-on: [push]
+name: Node CI
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '!morningstar-plugin/**'
 
 jobs:
   build:
@@ -10,7 +15,7 @@ jobs:
       - name: Prepare
         run: |
           git mv index.html.example index.html
-          
+
       - name: Set Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -20,12 +25,12 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
-      
+
       - name: Lint the app
         uses: borales/actions-yarn@v4
         with:
           cmd: lint:script # will run `yarn lint:script` command
-          
+
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
