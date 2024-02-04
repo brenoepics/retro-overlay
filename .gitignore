@@ -25,3 +25,9 @@ dist-ssr
 index.html
 yarn.lock
 *.example
+
+# Mosningstar files
+morningstar-plugin/.idea
+morningstar-plugin/.idea/workspace.xml
+morningstar-plugin/target/
+morningstar-plugin/*.iml
