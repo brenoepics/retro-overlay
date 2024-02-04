@@ -15,5 +15,6 @@
       "ecmaVersion": 2021
     },
     "plugins": [],
+    "ignorePatterns": ["src/plugins/*"],
     "rules": {}
 }
