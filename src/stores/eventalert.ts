@@ -1,30 +1,30 @@
 import { defineStore } from 'pinia';
 
 export const useEventAlertStore = defineStore('eventalert', () => {
-    let open = false;
-    let staffUsername = '';
-    let staffLook = '';
-    let playerUsername = '';
-    let eventTitle = '';
+    const open = ref(false);
+    const staffUsername = ref('');
+    const staffLook = ref('');
+    const playerUsername = ref('');
+    const eventTitle = ref('');
 
     function setOpen(windowOpen: boolean) {
-        open = windowOpen;
+        open.value = windowOpen;
     }
 
     function setStaffUsername(username: string) {
-        staffUsername = username;
+        staffUsername.value = username;
     }
 
     function setStaffLook(look: string) {
-        staffLook = look;
+        staffLook.value = look;
     }
 
     function setPlayerUsername(username: string) {
-        playerUsername = username;
+        playerUsername.value = username;
     }
 
     function setEventTitle(title: string) {
-        eventTitle = title;
+        eventTitle.value = title;
     }
 
     return { open, staffUsername, staffLook, playerUsername, eventTitle, setStaffUsername, setStaffLook, setPlayerUsername, setEventTitle, setOpen };
