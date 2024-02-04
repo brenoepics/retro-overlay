@@ -1,5 +1,5 @@
 {
-  "main" : "com.retro-overlay.plugin",
+  "main" : "com.overlay.main",
   "name" : "Retro-Overlay Plugin",
   "author" : "<a href=\"https://github.com/brenoepics/retro-overlay\">Retro-Overlay</a>"
 }

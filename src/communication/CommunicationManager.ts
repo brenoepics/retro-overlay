@@ -7,6 +7,7 @@ import Logger from '@/utils/Logger'
 import PingEvent from './incoming/generic/PingEvent'
 import { useConnectionStore } from '@/stores/connection'
 import ExternalInterface from '@/externalinterface/ExternalInterface'
+import EventAlertEvent from './incoming/event-alert/EventAlertEvent'
 
 declare global {
   interface Window {
@@ -26,6 +27,7 @@ export default class CommunicationManager {
 
   private registerMessages(): void {
     this._events.set('ping', new PingEvent())
+    this._events.set('eventAlert', new EventAlertEvent());
   }
 
   public sendMessage(message: OutgoingMessage): void {

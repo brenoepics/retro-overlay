@@ -3,6 +3,7 @@ import { useConnectionStore } from '@/stores/connection';
 import OverlayComponent from '@/interface/OverlayComponent.vue'
 
 const connection = useConnectionStore()
+
 </script>
 
 <template>
