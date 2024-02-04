@@ -1,5 +1,6 @@
 # Retro-Overlay
-
+>[!WARNING]
+> WIP project, not production ready yet.
 ## Prerequisites
 
 Ensure you have the following installed on your system:
@@ -20,6 +21,8 @@ Navigate into the project directory:
 ```bash
 cd retro-overlay
 ```
+
+Rename `index.html.example` to `index.html`
 
 Install the dependencies:
 
