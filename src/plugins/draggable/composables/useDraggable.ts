@@ -18,7 +18,7 @@ import useDraggableCore from './useDraggableCore'
 import useState from './useState'
 
 const useDraggable = (target: MaybeElementRef, options?: Partial<DraggableOptions>): UseDraggable => {
-  const node = ref<HTMLElement | SVGElement>(),
+  const node = ref<HTMLElement | SVGElement | null | undefined>(),
     sharedState = useState(options),
     state = sharedState(),
     onDragStartHook = createEventHook<DraggableEvent>(),

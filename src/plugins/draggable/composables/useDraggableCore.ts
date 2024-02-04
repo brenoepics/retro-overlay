@@ -41,7 +41,7 @@ const useDraggableCore = (
   target: MaybeElementRef,
   options?: Partial<DraggableCoreOptions> | (() => DraggableState)
 ): UseDraggableCore => {
-  const node = ref<HTMLElement | SVGElement>(),
+  const node = ref<HTMLElement | SVGElement | null | undefined>(),
     state = isFunction(options) ? options() : useState(options)(),
     pos = reactive({ x: NaN, y: NaN }),
     onDragStartHook = createEventHook<DraggableEvent>(),
