@@ -7,7 +7,10 @@ import EventAlertComponent from './components/event-alert/EventAlertComponent.vu
 
 @Component(
   {
-    components: { PerformanceComponent }
+    components: {
+      PerformanceComponent,
+      EventAlertComponent
+    }
   })
 class OverlayComponent extends Vue {
   debug = Logger.getDebugMode();
