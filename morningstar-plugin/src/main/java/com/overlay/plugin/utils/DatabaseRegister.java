@@ -21,6 +21,7 @@ public class DatabaseRegister {
       Emulator.getTexts().register("commands.keys.cmd_neweventalert","eventalert");
       Emulator.getTexts().register("commands.description.cmd_neweventalert",":eventalert [event_title]");
       Emulator.getTexts().register("commands.warning.cmd_neweventalert", "You did not specify a title for the event.");
+      Emulator.getTexts().register("commands.success.cmd_neweventalert", "Event alert sent successfully !");
     }
 
 

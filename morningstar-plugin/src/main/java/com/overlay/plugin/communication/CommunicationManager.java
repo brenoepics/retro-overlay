@@ -4,6 +4,7 @@ import com.eu.habbo.Emulator;
 import com.eu.habbo.habbohotel.gameclients.GameClient;
 import com.overlay.plugin.communication.incoming.IncomingWebMessage;
 import com.overlay.plugin.communication.incoming.audio.*;
+import com.overlay.plugin.communication.incoming.common.JoinRoomEvent;
 import com.overlay.plugin.communication.incoming.common.MoveAvatarEvent;
 import com.overlay.plugin.communication.incoming.common.RequestCreditsEvent;
 import com.overlay.plugin.communication.incoming.common.RequestSpinSlotMachineEvent;
@@ -19,15 +20,7 @@ public class CommunicationManager {
     }
 
     public void initializeMessages() {
-        this.registerMessage("move_avatar", MoveAvatarEvent.class);
-        this.registerMessage("request_credits", RequestCreditsEvent.class);
-        this.registerMessage("spin_slot_machine", RequestSpinSlotMachineEvent.class);
-        this.registerMessage("add_song", AddSongEvent.class);
-        this.registerMessage("next_song", NextSongEvent.class);
-        this.registerMessage("prev_song", PreviousSongEvent.class);
-        this.registerMessage("play_stop", PlayStopEvent.class);
-        this.registerMessage("remove_song", RemoveSongEvent.class);
-        this.registerMessage("song_ended", SongEndedEvent.class);
+        this.registerMessage("join_room", JoinRoomEvent.class);
     }
 
     public void registerMessage(String key, Class<? extends IncomingWebMessage> message) {

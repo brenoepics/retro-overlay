@@ -61,7 +61,7 @@ public class main extends HabboPlugin implements EventListener {
 
         // initialize singleton
         JSPlugin.init();
-        LOGGER.info("PLUGIN - Javascript-Plugin has started!");
+        LOGGER.info("PLUGIN - Retro-Overlay has started!");
     }
 
     @EventHandler

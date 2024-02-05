@@ -29,12 +29,21 @@ public class EventAlertCommand extends Command {
 
         for (Map.Entry<Integer, Habbo> set : Emulator.getGameEnvironment().getHabboManager().getOnlineHabbos().entrySet()) {
           Habbo habbo = set.getValue();
+          /*if(habbo.getHabboInfo().getId() != staff.getHabboInfo().getId()){
+            if (habbo.getHabboStats().blockStaffAlerts)
+              continue;
 
+            EventAlertComposer eventAlertComposer = new EventAlertComposer(staff.getHabboInfo().getUsername(),staff.getHabboInfo().getLook(),habbo.getHabboInfo().getUsername(),builder.toString());
+            habbo.getClient().sendResponse(new JavascriptCallbackComposer(eventAlertComposer).compose());
+            staff.whisper(Emulator.getTexts().getValue("commands.success.cmd_neweventalert"), RoomChatMessageBubbles.FRANK);
+          }
+          */
           if (habbo.getHabboStats().blockStaffAlerts)
             continue;
 
-          EventAlertComposer eventAlertComposer = new EventAlertComposer(staff.getHabboInfo().getUsername(),staff.getHabboInfo().getLook(),habbo.getHabboInfo().getUsername(),builder.toString());
+          EventAlertComposer eventAlertComposer = new EventAlertComposer(staff.getHabboInfo().getUsername(),staff.getHabboInfo().getLook(),habbo.getHabboInfo().getUsername(),builder.toString(),staff.getHabboInfo().getCurrentRoom().getId());
           habbo.getClient().sendResponse(new JavascriptCallbackComposer(eventAlertComposer).compose());
+          staff.whisper(Emulator.getTexts().getValue("commands.success.cmd_neweventalert"), RoomChatMessageBubbles.FRANK);
         }
 
       } else {

@@ -6,6 +6,7 @@ interface EventAlertData {
     staffLook: string;
     playerUsername: string;
     eventTitle: string;
+    roomId: number;
 }
 
 export default class EventAlertEvent implements IncomingMessage {
@@ -15,5 +16,6 @@ export default class EventAlertEvent implements IncomingMessage {
         useEventAlertStore().setStaffLook(data.staffLook);
         useEventAlertStore().setPlayerUsername(data.playerUsername);
         useEventAlertStore().setEventTitle(data.eventTitle);
+        useEventAlertStore().setRoomId(data.roomId);
     }
 }

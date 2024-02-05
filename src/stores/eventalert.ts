@@ -1,3 +1,4 @@
+// useEventAlertStore.ts
 import { defineStore } from 'pinia';
 
 export const useEventAlertStore = defineStore('eventalert', () => {
@@ -6,6 +7,8 @@ export const useEventAlertStore = defineStore('eventalert', () => {
     const staffLook = ref('');
     const playerUsername = ref('');
     const eventTitle = ref('');
+    const roomId = ref(0);
+    const transitionClass = ref('');
 
     function setOpen(windowOpen: boolean) {
         open.value = windowOpen;
@@ -27,5 +30,18 @@ export const useEventAlertStore = defineStore('eventalert', () => {
         eventTitle.value = title;
     }
 
-    return { open, staffUsername, staffLook, playerUsername, eventTitle, setStaffUsername, setStaffLook, setPlayerUsername, setEventTitle, setOpen };
+    function setRoomId(id: number) {
+        roomId.value = id;
+    }
+
+    function setTransitionClass(value: boolean) {
+        transitionClass.value = value ? 'event-alert-transition-enter-active' : 'event-alert-transition-leave-active';
+    }
+
+    return {
+        open, staffUsername, staffLook, playerUsername,
+        eventTitle, roomId, transitionClass,
+        setStaffUsername, setStaffLook, setPlayerUsername,
+        setEventTitle, setOpen, setRoomId, setTransitionClass
+    };
 });
