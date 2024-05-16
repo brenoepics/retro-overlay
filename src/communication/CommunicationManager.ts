@@ -17,7 +17,7 @@ declare global {
 }
 
 export default class CommunicationManager {
-  private _events: Map<string, IncomingMessage>
+  private readonly _events: Map<string, IncomingMessage>
   private _mode?: CommunicationType
 
   constructor() {

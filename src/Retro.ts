@@ -10,6 +10,10 @@ declare global {
   }
 }
 
+function isAllowedOrigin(origin: string): boolean {
+  return origin.length > 0;
+}
+
 export default class Retro {
   private static overlay: Overlay
 
@@ -25,7 +29,7 @@ export default class Retro {
   public static get Overlay(): Overlay {
     return Retro.overlay
   }
-  
+
   private initExternalFlashInterface = () => {
     const frame: HTMLIFrameElement | null = document.getElementById(
       'nitro',
@@ -36,7 +40,7 @@ export default class Retro {
       Logger.info('Client not found, External Interface will not run')
       return
     }
-    
+
     if (!window.FlashExternalInterface) {
       window.FlashExternalInterface = new FlashExternalInterface()
     }
@@ -49,7 +53,7 @@ export default class Retro {
     window.addEventListener('message', (ev) => {
       const legacyInterface = 'Nitro_LegacyExternalInterface'
 
-      if (typeof ev.data !== 'string' || !ev.data.startsWith(legacyInterface))
+      if (typeof ev.data !== 'string' || !ev.data.startsWith(legacyInterface) || !isAllowedOrigin(ev.origin))
         return
 
       const { method, params } = JSON.parse(
