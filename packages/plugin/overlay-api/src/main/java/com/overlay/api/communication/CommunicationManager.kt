@@ -11,7 +11,7 @@ object CommunicationManager {
     @JvmStatic
     fun onMessage(jsonPayload: String, sender: GameClient) {
         try {
-            val heading = JsonFactory.getInstance().fromJson(jsonPayload, IncomingEvent::class.java)
+            val heading = JsonFactory.gson.fromJson(jsonPayload, IncomingEvent::class.java)
             val packetClass = CommunicationDelegate.incomingMessages[heading.header]
             if (heading.header == null || packetClass == null) {
                 log.error("Unknown packet header: {}", heading.header)
@@ -19,7 +19,7 @@ object CommunicationManager {
             }
             val webEvent = packetClass.getDeclaredConstructor().newInstance()
             webEvent.handle(
-                sender, JsonFactory.getInstance().fromJson(heading.data, webEvent.type as Type)
+                sender, JsonFactory.gson.fromJson(heading.data, webEvent.type as Type)
             )
         } catch (e: Exception) {
             log.error("Error while handling incoming types: {}", jsonPayload, e)
