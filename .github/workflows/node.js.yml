@@ -10,6 +10,9 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/client
     steps:
       - uses: actions/checkout@v4
 
@@ -19,23 +22,19 @@ jobs:
           node-version: 18.x
 
       - name: Prepare
-        working-directory: ./packages/client
-        run: |
-          git mv index.html.example index.html
+        run: git mv index.html.example index.html
+        
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
-        working-directory: ./packages/client
 
       - name: Lint the app
         uses: borales/actions-yarn@v4
         with:
           cmd: lint:script # will run `yarn lint:script` command
-        working-directory: ./packages/client
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
-        working-directory: ./packages/client
