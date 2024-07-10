@@ -32,3 +32,4 @@ morningstar-plugin/.idea/workspace.xml
 morningstar-plugin/target/
 morningstar-plugin/*.iml
 /packages/plugin/target
+packages/client/index.html.example

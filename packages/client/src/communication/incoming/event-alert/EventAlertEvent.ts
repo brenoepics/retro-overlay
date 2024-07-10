@@ -14,7 +14,6 @@ export default class EventAlertEvent implements IncomingMessage {
         useEventAlertStore().setOpen(true);
         useEventAlertStore().setStaffUsername(data.staffUsername);
         useEventAlertStore().setStaffLook(data.staffLook);
-        useEventAlertStore().setPlayerUsername(data.playerUsername);
         useEventAlertStore().setEventTitle(data.eventTitle);
         useEventAlertStore().setRoomId(data.roomId);
     }
