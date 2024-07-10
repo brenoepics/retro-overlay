@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.overlay</groupId>
         <artifactId>retro-overlay</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>overlay-api</artifactId>

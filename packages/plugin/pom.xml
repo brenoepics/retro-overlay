@@ -6,7 +6,7 @@
 
     <groupId>com.overlay</groupId>
     <artifactId>retro-overlay</artifactId>
-    <version>0.0.1</version>
+    <version>${overlay.version}</version>
     <packaging>pom</packaging>
     <modules>
         <module>overlay-api</module>
@@ -14,6 +14,7 @@
     </modules>
 
     <properties>
+        <overlay.version>0.0.1</overlay.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <kotlin.version>2.0.0</kotlin.version>
