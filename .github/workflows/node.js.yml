@@ -22,19 +22,12 @@ jobs:
           node-version: 18.x
 
       - name: Prepare
-        run: git mv index.html.example index.html
+        run: | 
+          git mv index.html.example index.html
+          npm install yarn -g
         
-      - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
-
-      - name: Lint the app
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: lint:script # will run `yarn lint:script` command
-
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+      - name: build
+        run: |
+          yarn install
+          yarn lint:script
+          yarn build
