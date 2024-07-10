@@ -25,4 +25,4 @@ jobs:
           cache: 'maven'
       - name: Build Plugin
         working-directory: ./packages/plugin
-        run: mvn clean -B package --file pom.xml
+        run: mvn package
