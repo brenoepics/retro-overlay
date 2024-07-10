@@ -4,34 +4,38 @@ on:
     branches:
       - main
     paths:
-      - '!morningstar-plugin/**'
+      - 'packages/client/**'
 
 jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Prepare
-        run: |
-          git mv index.html.example index.html
+      - uses: actions/checkout@v4
 
       - name: Set Node.js 18.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
 
+      - name: Prepare
+        working-directory: ./packages/client
+        run: |
+          git mv index.html.example index.html
       - name: Run install
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
+        working-directory: ./packages/client
 
       - name: Lint the app
         uses: borales/actions-yarn@v4
         with:
           cmd: lint:script # will run `yarn lint:script` command
+        working-directory: ./packages/client
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
+        working-directory: ./packages/client
