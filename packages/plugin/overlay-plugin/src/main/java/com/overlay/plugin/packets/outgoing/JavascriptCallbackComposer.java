@@ -17,7 +17,7 @@ public class JavascriptCallbackComposer extends MessageComposer {
   protected ServerMessage composeInternal() {
     this.response.init(Outgoing.NuxAlertComposer);
     // replace the / char so the string doesn't get cutoff by the swf
-    String jsonMessage = JsonFactory.getInstance().toJson(webMessage).replace("/", "&#47;");
+    String jsonMessage = JsonFactory.INSTANCE.getGson().toJson(webMessage).replace("/", "&#47;");
     this.response.appendString("habblet/open/" + jsonMessage);
     return this.response;
   }
