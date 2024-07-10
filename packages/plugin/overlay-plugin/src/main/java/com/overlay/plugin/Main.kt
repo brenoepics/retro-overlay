@@ -11,7 +11,7 @@ import com.eu.habbo.plugin.events.emulator.EmulatorLoadedEvent
 import com.eu.habbo.plugin.events.users.UserEnterRoomEvent
 import com.eu.habbo.plugin.events.users.UserLoginEvent
 import com.overlay.api.communication.CommunicationManager
-import com.overlay.plugin.messages.PacketUtils
+import com.overlay.plugin.messages.PacketUtils.updateSessionData
 import com.overlay.plugin.packets.incoming.JavascriptCallbackEvent
 import gnu.trove.map.hash.THashMap
 import org.slf4j.Logger
@@ -36,12 +36,12 @@ class Main : HabboPlugin(), EventListener {
 
     @EventHandler
     fun onUserEnterRoomEvent(e: UserEnterRoomEvent) {
-        PacketUtils.updateSessionData(e.habbo)
+        updateSessionData(e.habbo)
     }
 
     @EventHandler
     fun onUserLoginEvent(e: UserLoginEvent) {
-        PacketUtils.updateSessionData(e.habbo)
+        updateSessionData(e.habbo)
     }
 
     @Throws(Exception::class)

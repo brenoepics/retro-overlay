@@ -1,4 +1,4 @@
-import InterfaceManager from '@/interface/InterfaceManager';
+import InterfaceManager from '@/api/InterfaceManager.ts';
 import CommunicationManager from '@/communication/CommunicationManager';
 import Logger from '@/utils/Logger';
 

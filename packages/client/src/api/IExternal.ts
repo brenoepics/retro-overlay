@@ -1,4 +1,4 @@
-export default interface ExternalInterface {
+export default interface IExternal {
     legacyTrack?: (
         category: string,
         action: string,

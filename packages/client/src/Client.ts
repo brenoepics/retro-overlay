@@ -1,12 +1,12 @@
 import Logger from '@/utils/Logger'
 import { CommunicationType } from './communication/CommunicationType'
-import FlashExternalInterface from './externalinterface/FlashExternalInterface'
-import ExternalInterface from './externalinterface/ExternalInterface'
-import Overlay from './externalinterface/Overlay'
+import IFlashExternal from '@/api/IFlashExternal.ts'
+import IExternal from '@/api/IExternal.ts'
+import Overlay from '@/api/Overlay'
 
 declare global {
   interface Window {
-    FlashExternalInterface: ExternalInterface
+    FlashExternalInterface: IExternal
   }
 }
 
@@ -14,20 +14,20 @@ function isAllowedOrigin(origin: string): boolean {
   return origin.length > 0;
 }
 
-export default class Retro {
+export default class Client {
   private static overlay: Overlay
 
   constructor(debug: boolean = false) {
-    Retro.overlay = new Overlay(debug)
+    Client.overlay = new Overlay(debug)
   }
 
   public init() {
-    Retro.overlay.interfaceManager.initInterface()
+    Client.overlay.interfaceManager.initInterface()
     this.initExternalFlashInterface()
   }
 
   public static get Overlay(): Overlay {
-    return Retro.overlay
+    return Client.overlay
   }
 
   private initExternalFlashInterface = () => {
@@ -42,10 +42,10 @@ export default class Retro {
     }
 
     if (!window.FlashExternalInterface) {
-      window.FlashExternalInterface = new FlashExternalInterface()
+      window.FlashExternalInterface = new IFlashExternal()
     }
 
-    Retro.overlay.communicationManager.mode =
+    Client.overlay.communicationManager.mode =
     CommunicationType.IFrameExternalFlashInterface
 
     if (!frame?.contentWindow) return

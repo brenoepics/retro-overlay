@@ -1,18 +1,18 @@
-import Retro from '@/Retro'
-import ExternalInterface from './ExternalInterface'
+import Client from '@/Client.ts'
+import IExternal from './IExternal.ts'
 import Logger from '@/utils/Logger'
 
-export default class FlashExternalInterface implements ExternalInterface {
+export default class IFlashExternal implements IExternal {
   /* TODO: add everything on the FlashExternalInterface class */
 
   disconnect(reasonCode: number, reasonString: string): void {
-    Retro.Overlay.communicationManager.onClose()
+    Client.Overlay.communicationManager.onClose()
     Logger.info(`Disconnect: ${reasonCode} ${reasonString}`)
   }
 
   legacyTrack(category: string, action: string, data: unknown[]): void {
     if (category === 'authentication') {
-      Retro.Overlay.communicationManager.onOpen()
+      Client.Overlay.communicationManager.onOpen()
     }
 
     Logger.debug(`Legacy track: ${category} ${action} ${data}`)
@@ -39,7 +39,7 @@ export default class FlashExternalInterface implements ExternalInterface {
   }
 
   openHabblet(message: string, param: string): void {
-    Retro.Overlay.communicationManager.onMessage(message)
+    Client.Overlay.communicationManager.onMessage(message)
     Logger.debug('Received message: ' + message + ' with param: ' + param)
   }
 

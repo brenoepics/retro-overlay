@@ -5,7 +5,6 @@ export const useEventAlertStore = defineStore('eventalert', () => {
     const open = ref(false);
     const staffUsername = ref('');
     const staffLook = ref('');
-    const playerUsername = ref('');
     const eventTitle = ref('');
     const roomId = ref(0);
     const transitionClass = ref('');
@@ -22,10 +21,6 @@ export const useEventAlertStore = defineStore('eventalert', () => {
         staffLook.value = look;
     }
 
-    function setPlayerUsername(username: string) {
-        playerUsername.value = username;
-    }
-
     function setEventTitle(title: string) {
         eventTitle.value = title;
     }
@@ -39,9 +34,9 @@ export const useEventAlertStore = defineStore('eventalert', () => {
     }
 
     return {
-        open, staffUsername, staffLook, playerUsername,
+        open, staffUsername, staffLook,
         eventTitle, roomId, transitionClass,
-        setStaffUsername, setStaffLook, setPlayerUsername,
+        setStaffUsername, setStaffLook,
         setEventTitle, setOpen, setRoomId, setTransitionClass
     };
 });

@@ -6,12 +6,12 @@ import Logger from '@/utils/Logger'
 
 import PingEvent from './incoming/generic/PingEvent'
 import { useConnectionStore } from '@/stores/connection'
-import ExternalInterface from '@/externalinterface/ExternalInterface'
+import IExternal from '@/api/IExternal.ts'
 import EventAlertEvent from './incoming/event-alert/EventAlertEvent'
 
 declare global {
   interface Window {
-    FlashExternalInterface: ExternalInterface
+    FlashExternalInterface: IExternal
     openroom: (message: string) => void
   }
 }

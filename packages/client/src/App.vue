@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useConnectionStore } from '@/stores/connection';
-import OverlayComponent from '@/interface/OverlayComponent.vue'
+import OverlayComponent from '@/views/OverlayComponent.vue'
 
 const connection = useConnectionStore()
-
 </script>
 
 <template>

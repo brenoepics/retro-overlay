@@ -1,6 +1,6 @@
 import PongComposer from '@/communication/outgoing/generic/PongComposer';
 import IncomingMessage from '../IncomingMessage';
-import Retro from '@/Retro';
+import Client from '@/Client.ts';
 
 interface PingData {
     message: string;
@@ -9,6 +9,6 @@ interface PingData {
 export default class PingEvent implements IncomingMessage {
     parse(data: PingData): void {
         console.log(data.message)
-        Retro.Overlay.communicationManager.sendMessage(new PongComposer());
+        Client.Overlay.communicationManager.sendMessage(new PongComposer());
     }
 }

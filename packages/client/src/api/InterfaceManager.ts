@@ -10,7 +10,6 @@ export default class InterfaceManager {
         this._container = createApp(Overlay)
         this._container.use(createPinia())
         this._container.use(DraggablePlugin)
-
         this._container.mount("external-interface")
     }
 
