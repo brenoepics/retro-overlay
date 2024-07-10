@@ -52,7 +52,7 @@ export default class CommunicationManager {
 
     if (swfObject) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ;(swfObject as any).openroom(JSON.stringify(message))
+      (swfObject as any).openroom(JSON.stringify(message))
     }
   }
 
@@ -63,8 +63,7 @@ export default class CommunicationManager {
       Logger.info('Handshake completed')
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let json: { header: string; data: any }
+    let json: { header: string; data: never }
     if (typeof message === 'string' || message instanceof String) {
       json = JSON.parse(message.replace(/&#47;/g, '/'))
     } else {
