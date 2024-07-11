@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 
 </script>
 
 <template>
-  <div class="overlay-menu" v-draggable>
+  <div v-draggable class="overlay-menu">
     <slot>Menu</slot>
   </div>
 </template>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import Logger from '@/utils/Logger'
   import PerformanceComponent from './debugging/PerformanceView.vue'
 
