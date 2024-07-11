@@ -6,11 +6,11 @@ export const useConnectionStore = defineStore('connection', () => {
   const handshake = ref(false)
 
   function setConnected(isConnected: boolean) {
-    connected.value = isConnected;
+    connected.value = isConnected
   }
 
   function setHandshake(isHandshake: boolean) {
-    handshake.value = isHandshake;
+    handshake.value = isHandshake
   }
 
   return { connected, setConnected, handshake, setHandshake }

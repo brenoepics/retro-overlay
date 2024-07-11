@@ -4,38 +4,24 @@ import IncomingMessage from './incoming/IncomingMessage'
 import OutgoingMessage from './outgoing/OutgoingMessage'
 import Logger from '@/utils/Logger'
 
-import PingEvent from './incoming/generic/PingEvent'
 import { useConnectionStore } from '@/stores/connection'
-import IExternal from '@/api/IExternal.ts'
-import EventAlertEvent from './incoming/event-alert/EventAlertEvent'
+import { INCOMING_MESSAGES } from '@/communication/PluginMessageRegistrar.ts'
+import { ICommunicationManager } from '@/communication/ICommunicationManager.ts'
 
-declare global {
-  interface Window {
-    FlashExternalInterface: IExternal
-    openroom: (message: string) => void
-  }
-}
-
-export default class CommunicationManager {
+export default class CommunicationManager implements ICommunicationManager {
   private readonly _events: Map<string, IncomingMessage>
   private _mode?: CommunicationType
 
   constructor() {
-    this._events = new Map<string, IncomingMessage>()
-    this.registerMessages()
+    this._events = INCOMING_MESSAGES
   }
 
-  private registerMessages(): void {
-    this._events.set('ping', new PingEvent())
-    this._events.set('eventAlert', new EventAlertEvent());
-  }
-
-  public sendMessage(message: OutgoingMessage): void {
+  sendMessage(message: OutgoingMessage): void {
     if (!useConnectionStore().connected || !message) return
 
     if (this._mode === CommunicationType.IFrameExternalFlashInterface) {
       const frame: HTMLIFrameElement | null = document.getElementById(
-        'nitro',
+        'nitro'
       ) as HTMLIFrameElement
 
       if (frame?.contentWindow) {
@@ -51,12 +37,11 @@ export default class CommunicationManager {
       document.querySelector('object, embed')
 
     if (swfObject) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (swfObject as any).openroom(JSON.stringify(message))
+      (swfObject as unknown as Window).openroom(JSON.stringify(message))
     }
   }
 
-  public onMessage(message: string | MessageEvent): void {
+  onMessage(message: string | MessageEvent): void {
     if (!useConnectionStore().connected || !useConnectionStore().handshake) {
       this.onOpen()
       useConnectionStore().setHandshake(true)
@@ -76,7 +61,7 @@ export default class CommunicationManager {
     } else Logger.info('No parser found for message: ' + json.header)
   }
 
-  public onOpen(): void {
+  onOpen(): void {
     useConnectionStore().setConnected(true)
     Logger.info('connected')
   }
@@ -85,11 +70,12 @@ export default class CommunicationManager {
     useConnectionStore().setConnected(false)
     Logger.info('disconnected')
   }
-  public get events(): Map<string, IncomingMessage> {
+
+  get events(): Map<string, IncomingMessage> {
     return this._events
   }
 
-  public get mode(): CommunicationType {
+  get mode(): CommunicationType {
     return this._mode!
   }
 

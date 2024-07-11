@@ -1,5 +1,4 @@
 export default class Logger {
-
     private static DebugMode = true;
 
     public static setDebugMode(debugMode: boolean) {
@@ -9,6 +8,7 @@ export default class Logger {
     public static getDebugMode() {
         return Logger.DebugMode;
     }
+
     private static log(msg: string) {
         try {
             const date = new Date();

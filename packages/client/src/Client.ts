@@ -1,14 +1,7 @@
 import Logger from '@/utils/Logger'
 import { CommunicationType } from './communication/CommunicationType'
 import IFlashExternal from '@/api/IFlashExternal.ts'
-import IExternal from '@/api/IExternal.ts'
 import Overlay from '@/api/Overlay'
-
-declare global {
-  interface Window {
-    FlashExternalInterface: IExternal
-  }
-}
 
 function isAllowedOrigin(origin: string): boolean {
   return origin.length > 0;
