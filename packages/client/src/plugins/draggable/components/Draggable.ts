@@ -63,7 +63,8 @@ const Draggable = defineComponent({
     },
     offsetParent: {
       type: Object as PropType<DraggableOptions['offsetParent']>,
-      default: () => {}
+      default: () => {
+      }
     },
     grid: {
       type: Array as unknown as PropType<DraggableOptions['grid']>,
@@ -79,19 +80,23 @@ const Draggable = defineComponent({
     },
     start: {
       type: Function as PropType<DraggableOptions['start']>,
-      default: () => {}
+      default: () => {
+      }
     },
     move: {
       type: Function as PropType<DraggableOptions['move']>,
-      default: () => {}
+      default: () => {
+      }
     },
     stop: {
       type: Function as PropType<DraggableOptions['stop']>,
-      default: () => {}
+      default: () => {
+      }
     },
     mouseDown: {
       type: Function as PropType<DraggableOptions['mouseDown']>,
-      default: () => {}
+      default: () => {
+      }
     }
   },
   emits: ['move', 'start', 'stop', 'transformed'],

@@ -62,7 +62,11 @@ export interface DraggableCoreOptions {
 export type DraggableCoreState = State & DraggableCoreOptions
 
 export type DraggableState = State &
-  DraggableOptions & { currentPosition: ControlPosition; prevPropsPosition: { x: number; y: number }; isElementSVG: boolean }
+  DraggableOptions & {
+  currentPosition: ControlPosition;
+  prevPropsPosition: { x: number; y: number };
+  isElementSVG: boolean
+}
 
 interface State {
   dragging: boolean
