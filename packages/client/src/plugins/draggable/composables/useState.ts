@@ -12,10 +12,14 @@ export default (options?: Partial<DraggableOptions>): (() => DraggableState) => 
         enableTransformFix: false,
         offsetParent: undefined,
         grid: undefined,
-        start: () => {},
-        move: () => {},
-        stop: () => {},
-        mouseDown: () => {},
+        start: () => {
+        },
+        move: () => {
+        },
+        stop: () => {
+        },
+        mouseDown: () => {
+        },
         position: undefined,
         currentPosition: { x: NaN, y: NaN },
         positionOffset: undefined,

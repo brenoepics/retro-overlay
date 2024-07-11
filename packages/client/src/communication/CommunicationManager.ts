@@ -10,10 +10,23 @@ import { ICommunicationManager } from '@/communication/ICommunicationManager.ts'
 
 export default class CommunicationManager implements ICommunicationManager {
   private readonly _events: Map<string, IncomingMessage>
-  private _mode?: CommunicationType
 
   constructor() {
     this._events = INCOMING_MESSAGES
+  }
+
+  private _mode?: CommunicationType
+
+  get mode(): CommunicationType {
+    return this._mode!
+  }
+
+  public set mode(type: CommunicationType) {
+    this._mode = type
+  }
+
+  get events(): Map<string, IncomingMessage> {
+    return this._events
   }
 
   sendMessage(message: OutgoingMessage): void {
@@ -69,17 +82,5 @@ export default class CommunicationManager implements ICommunicationManager {
   onClose() {
     useConnectionStore().setConnected(false)
     Logger.info('disconnected')
-  }
-
-  get events(): Map<string, IncomingMessage> {
-    return this._events
-  }
-
-  get mode(): CommunicationType {
-    return this._mode!
-  }
-
-  public set mode(type: CommunicationType) {
-    this._mode = type
   }
 }

@@ -1,13 +1,13 @@
-import { isNum, int, isTouch } from './shims'
-import { innerWidth, innerHeight, offsetXYFromParent, outerWidth, outerHeight, getTouch } from './domFns'
+import { int, isNum, isTouch } from './shims'
+import { getTouch, innerHeight, innerWidth, offsetXYFromParent, outerHeight, outerWidth } from './domFns'
 import { Bounds, ControlPosition, DraggableData, DraggableOptions, MouseTouchEvent } from './types'
 
 export function getBoundPosition({
-  bounds,
-  x,
-  y,
-  node
-}: {
+                                   bounds,
+                                   x,
+                                   y,
+                                   node
+                                 }: {
   bounds: any
   x: number
   y: number
@@ -67,12 +67,12 @@ export function canDragY(axis: DraggableOptions['axis']): boolean {
 }
 
 export function getControlPosition({
-  e,
-  touch,
-  node,
-  offsetContainer,
-  scale
-}: {
+                                     e,
+                                     touch,
+                                     node,
+                                     offsetContainer,
+                                     scale
+                                   }: {
   e: MouseTouchEvent
   touch: number | undefined
   node: HTMLElement | SVGElement
@@ -86,12 +86,12 @@ export function getControlPosition({
 }
 
 export function createCoreData({
-  node,
-  x,
-  y,
-  lastX,
-  lastY
-}: {
+                                 node,
+                                 x,
+                                 y,
+                                 lastX,
+                                 lastY
+                               }: {
   node: HTMLElement | SVGElement
   x: number
   y: number

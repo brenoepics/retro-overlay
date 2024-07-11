@@ -1,21 +1,21 @@
 import { get, MaybeElementRef } from '@vueuse/core'
 import {
-  addUserSelectStyles,
-  getTouchIdentifier,
-  matchesSelectorAndParentsTo,
-  removeEvent,
-  removeUserSelectStyles,
-  createCoreData,
-  getControlPosition,
-  snapToGrid,
   addEvent,
-  isFunction,
-  log,
+  addUserSelectStyles,
+  createCoreData,
   DraggableCoreOptions,
   DraggableEvent,
   DraggableState,
   EventHandler,
+  getControlPosition,
+  getTouchIdentifier,
+  isFunction,
+  log,
+  matchesSelectorAndParentsTo,
   MouseTouchEvent,
+  removeEvent,
+  removeUserSelectStyles,
+  snapToGrid,
   UseDraggableCore
 } from '../utils'
 import useState from './useState'

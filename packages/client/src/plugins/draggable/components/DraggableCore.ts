@@ -1,4 +1,4 @@
-import { PropType, isVue3 } from 'vue-demi'
+import { isVue3, PropType } from 'vue-demi'
 import { DraggableCoreOptions } from '../utils'
 import { useDraggableCore } from '../composables'
 
@@ -39,19 +39,23 @@ const DraggableCore = defineComponent({
     },
     onStart: {
       type: Function as PropType<DraggableCoreOptions['start']>,
-      default: () => {}
+      default: () => {
+      }
     },
     onMove: {
       type: Function as PropType<DraggableCoreOptions['move']>,
-      default: () => {}
+      default: () => {
+      }
     },
     onStop: {
       type: Function as PropType<DraggableCoreOptions['stop']>,
-      default: () => {}
+      default: () => {
+      }
     },
     onMouseDown: {
       type: Function as PropType<DraggableCoreOptions['mouseDown']>,
-      default: () => {}
+      default: () => {
+      }
     }
   },
   emits: ['start', 'move', 'stop'],

@@ -1,3 +1,3 @@
 export default interface IncomingMessage {
-    parse(data: unknown): void;
+  parse(data: unknown): void;
 }

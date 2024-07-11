@@ -1,19 +1,22 @@
 import InterfaceManager from '@/api/InterfaceManager.ts'
-import CommunicationManager, { ICommunicationManager } from '@/communication/CommunicationManager'
+import CommunicationManager from '@/communication/CommunicationManager'
 import Logger from '@/utils/Logger'
+import { ICommunicationManager } from '@/communication/ICommunicationManager.ts'
 
 export default class Overlay {
-  private _interfaceManager: InterfaceManager = new InterfaceManager();
-  private _communicationManager: ICommunicationManager= new CommunicationManager();
-
   constructor(debug: boolean) {
-    Logger.setDebugMode(debug);
-  }
-  public get interfaceManager() : InterfaceManager {
-    return this._interfaceManager;
+    Logger.setDebugMode(debug)
   }
 
-  public get communicationManager() : ICommunicationManager {
-    return this._communicationManager;
+  private _interfaceManager: InterfaceManager = new InterfaceManager()
+
+  public get interfaceManager(): InterfaceManager {
+    return this._interfaceManager
+  }
+
+  private _communicationManager: ICommunicationManager = new CommunicationManager()
+
+  public get communicationManager(): ICommunicationManager {
+    return this._communicationManager
   }
 }

@@ -4,7 +4,7 @@ import IFlashExternal from '@/api/IFlashExternal.ts'
 import Overlay from '@/api/Overlay'
 
 function isAllowedOrigin(origin: string): boolean {
-  return origin.length > 0;
+  return origin.length > 0
 }
 
 export default class Client {
@@ -14,18 +14,18 @@ export default class Client {
     Client.overlay = new Overlay(debug)
   }
 
+  public static get Overlay(): Overlay {
+    return Client.overlay
+  }
+
   public init() {
     Client.overlay.interfaceManager.initInterface()
     this.initExternalFlashInterface()
   }
 
-  public static get Overlay(): Overlay {
-    return Client.overlay
-  }
-
   private initExternalFlashInterface = () => {
     const frame: HTMLIFrameElement | null = document.getElementById(
-      'nitro',
+      'nitro'
     ) as HTMLIFrameElement
 
     //@ts-expect-error NitroConfig comes from index.html
@@ -39,7 +39,7 @@ export default class Client {
     }
 
     Client.overlay.communicationManager.mode =
-    CommunicationType.IFrameExternalFlashInterface
+      CommunicationType.IFrameExternalFlashInterface
 
     if (!frame?.contentWindow) return
 
@@ -50,7 +50,7 @@ export default class Client {
         return
 
       const { method, params } = JSON.parse(
-        ev.data.substring(legacyInterface.length),
+        ev.data.substring(legacyInterface.length)
       )
 
       if (!('FlashExternalInterface' in window)) return

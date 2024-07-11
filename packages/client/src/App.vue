@@ -1,8 +1,8 @@
-<script setup lang="ts">
-import { useConnectionStore } from '@/stores/connection';
-import OverlayComponent from '@/views/OverlayComponent.vue'
+<script lang="ts" setup>
+  import { useConnectionStore } from '@/stores/connection'
+  import OverlayComponent from '@/views/OverlayComponent.vue'
 
-const connection = useConnectionStore()
+  const connection = useConnectionStore()
 </script>
 
 <template>
@@ -10,5 +10,5 @@ const connection = useConnectionStore()
 </template>
 
 <style lang="scss">
-@import '@/assets/index.scss';
+  @import '@/assets/index.scss';
 </style>

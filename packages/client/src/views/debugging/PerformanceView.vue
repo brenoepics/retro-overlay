@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useFpsStore } from '@/stores/fps.ts'
   import MiniMenuComponent from '@/views/components/MiniMenuComponent.vue'
 

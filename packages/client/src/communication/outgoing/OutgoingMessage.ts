@@ -1,4 +1,4 @@
 export default interface OutgoingMessage {
-    header: string;
-    data: unknown;
+  header: string;
+  data: unknown;
 }

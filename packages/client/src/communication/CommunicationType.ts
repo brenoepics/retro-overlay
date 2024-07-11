@@ -1,4 +1,4 @@
 export enum CommunicationType {
-    ExternalFlashInterface,
-    IFrameExternalFlashInterface
+  ExternalFlashInterface,
+  IFrameExternalFlashInterface
 }
