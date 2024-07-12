@@ -3,7 +3,7 @@
   import { useFpsStore } from '@/stores/fps.ts'
   import MiniMenuComponent from '@/views/components/MiniMenuComponent.vue'
   import { useConnectionStore } from '@/stores/connection.ts'
-  import RequestSessionDataComposer from '@/communication/outgoing/session/RequestSessionDataComposer.ts'
+  import HelloWorldComposer from '@/communication/outgoing/generic/HelloWorldComposer.ts'
 
   const connection = useConnectionStore()
   const fps = useFpsStore()
@@ -16,8 +16,8 @@
     requestAnimationFrame(tick)
   }
 
-  const ping = () => {
-    connection.sendComposer(new RequestSessionDataComposer())
+  const hello = () => {
+    connection.sendComposer(new HelloWorldComposer(performance.now()))
   }
 
   onMounted(() => tick())
@@ -28,18 +28,17 @@
     <div class="fps-counter">
       <h5>FPS: {{ fps.rate }}
       </h5>
-      <button class="btn" @click="ping()">Ping</button>
+      <button class="btn" @click="hello()">Send Hello World</button>
     </div>
   </MiniMenuComponent>
 </template>
 
 <style scoped>
   .fps-counter {
-    color: #ff0000;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Ubuntu', 'Arial', sans-serif;
     flex-direction: column;
+    color: #ff0000;
   }
 </style>
