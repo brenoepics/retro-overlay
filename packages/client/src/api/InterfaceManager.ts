@@ -1,7 +1,7 @@
 import { App, createApp } from 'vue'
 import Overlay from '@/App.vue'
 import { createPinia } from 'pinia'
-import { DraggablePlugin } from '@/plugins/draggable'
+import { DraggablePlugin } from '@braks/revue-draggable'
 
 export default class InterfaceManager {
   private _container?: App

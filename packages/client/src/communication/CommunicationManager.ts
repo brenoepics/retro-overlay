@@ -7,6 +7,7 @@ import Logger from '@/utils/Logger'
 import { useConnectionStore } from '@/stores/connection'
 import { INCOMING_MESSAGES } from '@/communication/PluginMessageRegistrar.ts'
 import { ICommunicationManager } from '@/communication/ICommunicationManager.ts'
+import RequestSessionDataComposer from '@/communication/outgoing/session/RequestSessionDataComposer.ts'
 
 export default class CommunicationManager implements ICommunicationManager {
   private readonly _events: Map<string, IncomingMessage>
@@ -56,7 +57,6 @@ export default class CommunicationManager implements ICommunicationManager {
 
   onMessage(message: string | MessageEvent): void {
     if (!useConnectionStore().connected || !useConnectionStore().handshake) {
-      this.onOpen()
       useConnectionStore().setHandshake(true)
       Logger.info('Handshake completed')
     }
@@ -76,6 +76,7 @@ export default class CommunicationManager implements ICommunicationManager {
 
   onOpen(): void {
     useConnectionStore().setConnected(true)
+    setTimeout(() => useConnectionStore().sendComposer(new RequestSessionDataComposer()), 2000)
     Logger.info('connected')
   }
 
