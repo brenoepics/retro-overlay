@@ -32,4 +32,10 @@ object CommunicationDelegate {
     fun <T : IncomingPacket<*>> registerMessage(key: String, message: Class<T>) {
         incomingMessages[key] = message as Class<IncomingPacket<*>>
     }
+
+    fun <T : IncomingPacket<*>> registerMessage(messages: Map<String, Class<T>>) {
+        messages.forEach { (key, clazz) ->
+            registerMessage(key, clazz)
+        }
+    }
 }

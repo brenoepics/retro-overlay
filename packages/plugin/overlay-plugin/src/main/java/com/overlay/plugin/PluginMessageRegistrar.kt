@@ -1,9 +1,12 @@
 package com.overlay.plugin
 
-import com.overlay.api.communication.CommunicationDelegate
+import com.overlay.api.communication.types.APIMessages
 import com.overlay.plugin.messages.incoming.common.JoinRoomEvent
+import com.overlay.plugin.messages.incoming.session.RequestSessionDataEvent
 
-fun registerMessages() {
-    CommunicationDelegate.registerMessage("join_room", JoinRoomEvent::class.java)
-    CommunicationDelegate.registerMessage("join_room2", JoinRoomEvent::class.java)
+object PluginMessageRegistrar : APIMessages() {
+    init {
+        addMessage("join_room", JoinRoomEvent::class.java)
+        addMessage("request_session_data", RequestSessionDataEvent::class.java)
+    }
 }
