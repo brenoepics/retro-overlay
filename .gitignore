@@ -33,3 +33,4 @@ morningstar-plugin/target/
 morningstar-plugin/*.iml
 /packages/plugin/target
 packages/client/index.html.example
+packages/client/package-lock.json

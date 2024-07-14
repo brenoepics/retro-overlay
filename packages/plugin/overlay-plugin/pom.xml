@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.overlay</groupId>
+        <groupId>io.github.brenoepics</groupId>
         <artifactId>retro-overlay</artifactId>
         <version>0.0.1</version>
     </parent>
@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.overlay.plugin.Main</mainClass>
+                            <mainClass>io.github.brenoepics.overlay.plugin.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -41,10 +41,16 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>com.overlay</groupId>
+            <groupId>io.github.brenoepics</groupId>
             <artifactId>overlay-api</artifactId>
             <version>0.0.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.brenoepics</groupId>
+            <artifactId>morningstar</artifactId>
+            <version>3-5-0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
