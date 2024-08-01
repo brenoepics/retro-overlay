@@ -22,7 +22,7 @@
     "@braks/revue-draggable": "^0.5.0",
     "@vueuse/core": "^10.7.2",
     "pinia": "^2.1.7",
-    "unplugin-auto-import": "^0.17.5",
+    "unplugin-auto-import": "^0.18.2",
     "vue": "3.4.31",
     "vue-demi": "^0.14.7"
   },
